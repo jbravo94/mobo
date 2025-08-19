@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Backup Bro</title>
+    <title>mobo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -21,8 +21,9 @@
       <nav>
         <a href="#usecases"><h4>USECASES</h4></a>
         <a href="#skins"><h4>SKINS</h4></a>
-        <!--<a href="#architecture"><h4>Architecture</h4></a>
-        <a href="#installation"><h4>Installation</h4></a>-->
+        <a href="#installation"><h4>INSTALLATION</h4></a>
+        <a href="#architecture"><h4>ARCHITECTURE</h4></a>
+
       </nav>
     </header>
 
@@ -45,7 +46,7 @@
         <div>
           <table>
             <tr><td><h3>CLOUD READY 4 AWS</h3></td></tr>
-            <tr><td><h4>Durable low-maintenance setup with Lambda functions, DynamoDB and CLI scripts available</h4></td></tr>
+            <tr><td><h4>Durable low-maintenance backend with</h4><h4>Lambda functions, DynamoDB and CLI scripts available</h4></td></tr>
           </table>
         </div>
         <div>
@@ -88,6 +89,63 @@
       </div>
     </section>
 
+    <section id="installation" class="savvy">
+      <h3>Installation</h3>
+      <div>
+        <ol>
+          <li>
+            Purchase Waveshare ESP32-S3 1.75inch AMOLED Round Touch Display Development Board with Case
+            <p>
+              <h4><a href="https://amzn.to/4lLh0Hm" class="button">Buy hardware from Amazon</a></h4>
+            </p>
+          </li>
+          <li>
+            <p>
+              Download and flash firmware via Arduino Studio 
+              <h4><a href="https://github.com/jbravo94/mobo/releases" class="button">Download Firmware</a></h4>
+            </p>
+          </li>
+          <li>
+            <p>
+              Configure required parameters via serial at baudrate 115200
+              <pre>
+AUTH BackupBuddyAdmin
+PUT wifi-ssid GL-MT6000-571
+PUT wifi-password ********
+PUT ntp-server-dn at.pool.ntp.org
+PUT aws-lamdba-dn ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws
+PUT aws-region eu-central-1
+PUT aws-access-key AKIAVLKHVHWXVFBHYJSU
+PUT aws-secret-key ****************************************
+QUIT
+              </pre>
+              Restart mobo by unplug and replug
+            </p>
+          </li>
+          <li>
+            Setup AWS Infrastructure and instrument applications with reporting routine (Will be documented soon)
+          </li>
+        </ol>
+        
+      </div>
+    </section>
+
+    <section id="architecture" class="savvy">
+      <h3>Architecture</h3>
+      <div>
+        <img src="architecture.drawio.png">
+        <br>
+        <br>
+        <h4>Behaviour</h4>
+        <p>
+          mobo checks daily if the configured applications report a valid status like SKIPPED or SUCCESS.
+        </p>
+        <p>
+          <h4><a href="https://github.com/jbravo94/mobo" class="button">Refer to Source Code for details</a></h4>
+        </p>
+      </div>
+    </section>
+
     <section id="skins" class="savvy">
       <h3>Customizable Skins</h3>
       <div>
@@ -97,5 +155,11 @@
 
     <script src="scrubbing.js"></script>
     
+    <!-- Survey Monkey Popup 25 seconds after page load -->
+    <script>(function(t,e,s,o){var n,c,l;t.SMCX=t.SMCX||[],e.getElementById(o)||(n=e.getElementsByTagName(s),c=n[n.length-1],l=e.createElement(s),l.type="text/javascript",l.async=!0,l.id=o,l.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd6nAB42u3tM5EmcHpcHawvQAMO0nkCHPu9HRIMW1Inkx.js",c.parentNode.insertBefore(l,c))})(window,document,"script","smcx-sdk");</script>
+
+    <!-- Permanent Feedback Ribbon 
+    <script>(function(t,e,s,o){var n,a,c;t.SMCX=t.SMCX||[],e.getElementById(o)||(n=e.getElementsByTagName(s),a=n[n.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=o,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd6nAB42u3tM5EmcHpcHawvT_2FaZ08kEuXnAlPpQgb2z_2FU.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
+    -->
   </body>
 </html>

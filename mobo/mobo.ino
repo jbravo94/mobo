@@ -189,14 +189,14 @@ void setup_httpclient() {
   client.setCACert(test_root_ca);
   //client.setCertificate(test_client_cert); // for client verification
   //client.setPrivateKey(test_client_key);	// for client verification
-  String server_ = preferences.getString("aws-lambda-dn", "");
+  String server_ = preferences.getString("aws-lambda-dn", "ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws"); //"ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws";
   LOGLN(server_);
-  server = (char*) server_.c_str(); //"ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws";
+  server = (char*) server_.c_str(); 
   
-  region = preferences.getString("aws-region", ""); //"eu-central-1";
+  region = preferences.getString("aws-region", "eu-central-1"); //"eu-central-1";
 
-  access_key = preferences.getString("aws-access-key", ""); //"AKIAVLKHVHWXVFBHYJSU";
-  secret_key = preferences.getString("aws-secret-key", ""); //"****************************************";
+  access_key = preferences.getString("aws-access-key", "AKIAVLKHVHWXVFBHYJSU"); //"AKIAVLKHVHWXVFBHYJSU";
+  secret_key = preferences.getString("aws-secret-key", "****************************************"); //"****************************************";
 }
 
 
@@ -383,7 +383,7 @@ void loop_httpclient() {
 }
 
 void setup_time() {
-  ntpServer = (char*) preferences.getString("ntp-server-dn", "").c_str(); //"at.pool.ntp.org";
+  ntpServer = (char*) preferences.getString("ntp-server-dn", "at.pool.ntp.org").c_str(); //"at.pool.ntp.org";
 
   configTime(0, 0, (const char*) ntpServer);
 }
@@ -530,14 +530,14 @@ void loop_serial() {
         LOGF("Key %s, Val %s ", key, val);
         preferences.putString(key.c_str(), val.c_str());
 
-        putBytes(key.c_str(), val.c_str(), (size_t) value.length());
+        preferences.putBytes(key.c_str(), val.c_str(), (size_t) value.length());
 
-        size_t valueLen = getBytesLength(key.c_str());
-        size_t buffer[valueLen];
+        size_t valueLen = preferences.getBytesLength(key.c_str());
+        char buffer[valueLen];
 
 
-        getBytes(key.c_str(), buffer, valueLen);
-        LOGLN(buffer);
+        preferences.getBytes(key.c_str(), &buffer, valueLen);
+        LOGLN(&buffer);
 
         receivedMessage = "";
       }

@@ -1,0 +1,24 @@
+# Sources
+
+* https://www.waveshare.com/wiki/ESP32-S3-Touch-AMOLED-1.75#08_ES8311
+* https://arduinojson.org/v7/example/http-client/
+* https://randomnerdtutorials.com/esp32-https-requests/
+* https://circuitdigest.com/microcontroller-projects/esp32-based-bluetooth-ibeacon
+* https://github.com/espressif/arduino-esp32/blob/master/libraries/BLE/src/BLEBeacon.cpp
+* https://randomnerdtutorials.com/esp32-useful-wi-fi-functions-arduino/
+* https://www.upesy.com/blogs/tutorials/how-to-connect-wifi-acces-point-with-esp32?srsltid=AfmBOoowSbSusyYeJf4tvEOdDb2z56VqK0d1wyzQUw_Z6Zc1DKzQ5yvK
+* https://circuitdigest.com/microcontroller-projects/ble-based-proximity-control-using-esp32
+* https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
+* https://github.com/espressif/arduino-esp32/releases/tag/3.3.0
+* https://forum.arduino.cc/t/esp32-bluetooth-proximity-sensor/1025299
+* https://www.waveshare.com/wiki/Arduino_Library_Manager_Tutorial
+* https://docs.espressif.com/projects/arduino-esp32/en/latest/index.html
+* https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/preferences.html
+* https://randomnerdtutorials.com/esp32-save-data-permanently-preferences/
+* https://randomnerdtutorials.com/epoch-unix-time-esp32-arduino/
+* https://os.mbed.com/teams/mbed-os-examples/code/mbed-os-example-tls-hashing/file/c68a6dc8d494/main.cpp/
+* https://hackaday.io/project/159183-esp32-arduino-tutorial-mbed-tls-using-the-sha-256/details
+* https://www.dfrobot.com/blog-921.html?srsltid=AfmBOooPRh-wH4XkjQTiCbMPC5Y3eIii8iis6ILOHaSVy0o8hJ48Ln-C
+* https://github.com/Seeed-Studio/Seeed_Arduino_mbedtls/blob/master/examples/HelloHMACSHA256/HelloHMACSHA256.ino
+* https://gist.github.com/nivertech/013fd0f8aa116c3edb65
+* https://www.espboards.dev/troubleshooting/issues/wifi/esp32-ntp-sync-failure/
