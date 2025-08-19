@@ -12,8 +12,9 @@ const scroll = () => {
   percentage = Math.min(percentage, 1)
 
   if (vid.duration > 0) {
-    vid.currentTime = vid.duration * percentage
+    vid.currentTime = (vid.duration - 0.01) * percentage
   }
+  console.log(percentage);
 }
 
 scroll()

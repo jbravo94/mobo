@@ -1,0 +1,78 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram name="Page-1" id="9JS6EHVuir3b_MJ0YYlZ">
+    <mxGraphModel dx="2066" dy="1236" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="I80Ibu-65VpTez39My0p-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-1" target="I80Ibu-65VpTez39My0p-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-16" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-1" target="I80Ibu-65VpTez39My0p-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-2" value="DynamoDB&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" vertex="1" parent="1">
+          <mxGeometry x="639.7" y="359" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-4" target="I80Ibu-65VpTez39My0p-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="358.7" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-4" value="mobo" style="verticalLabelPosition=bottom;aspect=fixed;html=1;shape=stencil(1VnbcpswEP0aP1qjC7o9dnr5D8bBMS0BDziN/fddLuKyECKU1E09mWCvvNLR2dXZBe/E1+oUn5Mdp3F1Tg6Xnfi24/yYXpMHuIL51FqYZERHprXl8VPSmtPiwltbdSmLX8lL+nDpPNL8lJTppR19mc0ivu/oFxip/8TXQ5HnsHpa5FVj+4HGj0WZPJbFc/4wGXDDVfw7WfDrvdMsOxRZUcLH9tqg2XFBm1eL8TXvODuf4pqg5truY92jXm+71zmuqZsNuOGnotnjdSEet9amJTE6Wluk31J5gDdZXD4me3i/P2bxYztHx0V5nU9ZLixTvSTJeeTebXHB+7qPr2m1L4tLXId5stptYU+fYgPUG/v/zv3qGbgz9EkefCj3h6yo1oQC7K+cwvZQr7iWSXUBkVr9Bsjr68OtgAap2LF5ratLlubJzyLN4VNzaXxbRX3T7xCf6zXhv6/XJi2D+FmtJyE1ggi2qpd9SJ/Ldi7WTQaevKtJV97ZGGFCdDYxt93YfNVb52skkbSb79b5GkOYVEHoxkj4AmKxQEnnaykxCJwVU2Du80ZQhijBpqAMLIZBjW09KIEQjUC+m60JCL4AdoWtSdz4QnzF5kxbFQ//1FbEhmW2IspIxIYmnOPMHtl6NoZFezI0ifoG4v2JPQbCFwCvhcoQoyRCZ0mEsPWWjcgk4cogZBHRAh+5ka1HNqDgC1jfz9oYB1/Au8baOH58HmaxNd1C0lsRZhxDvcJBAQ/URoEDpRSJlJqSoTjR7nu3ka4qRAboKpWIDQBs/E67d68jCO+26zqdwYL7nM712m/EUHc+3m5zDCMR9Uqze2CH7HPy6oddKBuUFZwIqdERsZDTSPVMRBizKCsUEQIVKLBF3B0lMaDzK513YBbURFm7hVmtP0tGg17SDX27JiysFEJx19xxNHQstudtOO6DPg0NIhcKJQWIlsJS4S9kYY2BQbfvEkoLDypxyoAiojOiGFEKnREJBdmpqaMDVrXUTukAX0jDKR2gxEx40XGHPIONSOvKgkeiUSiznwQ6cNsnvR90Q4POiIpAR3BHRgnHRwRaC45yohF31PgoCRrp2iMx2MIyFlRLKtT4QENDFWoX4XZCatSUwarcVYQeHUgJRaoOm1X6Y58mhYfdyqFB8cxY5lUv74OdM/+UrZWCB92IQrSZRB2g4ZCf83Z4EE+XFSD/GnWAoG0a3UVsENkAVY/oUJccyZqI6GMfDIZHEsBE2r+3gO1I64W9fkq0vIx7tsugpri+65/zMI6Tz4NpFsGGvMBPiah3HUkdOtkdmKjRaKecXlR4xxFTMVpoc37dhYlRrDyY8D/YQUoiQM6mRwhMxm9BxDw1hGPmP3AuKLzD04ktky3sccNcf+FZfuM0+6mxsba/kjaGPw==);fillColor=default;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="50" y="368" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-5" target="I80Ibu-65VpTez39My0p-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="218.7" y="290" />
+              <mxPoint x="218.7" y="379" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-5" value="Application" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" vertex="1" parent="1">
+          <mxGeometry x="58.7" y="260" width="42.6" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-12" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;startFill=0;dashPattern=8 8;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="228.7" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-11" value="Set status by submitting JSON data to Lambda Function" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="101.3" y="125" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 8;endArrow=none;startFill=0;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="159" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-15" value="Implements REST API for&amp;nbsp;&lt;div&gt;getRecentBackupStatus&amp;nbsp;and reportBackupStatusForApplication actions&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;(&lt;b&gt;FREE &lt;/b&gt;1 Mio requests and &lt;br&gt;400,000 GB-seconds per Month)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="298.7" y="110" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-17" target="I80Ibu-65VpTez39My0p-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-17" value="Managed database&lt;div&gt;&lt;br&gt;&lt;div&gt;(&lt;b&gt;FREE &lt;/b&gt;200 Mio Read/Write requests&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;and&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;25 GB &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;per Month)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="578.7" y="115" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-19" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;startFill=0;dashPattern=8 8;" edge="1" parent="1" source="I80Ibu-65VpTez39My0p-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="176" y="290" as="targetPoint" />
+            <mxPoint x="271.7" y="540" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-13" value="Query AWS Lambda API with Plain HTTP and AWS SigV4 Auth&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="58.7" y="480" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-20" value="&lt;b&gt;&lt;font style=&quot;font-size: 36px;&quot;&gt;ARCHITECTURE&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry width="850" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-22" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="298.7" y="270" width="480" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="I80Ibu-65VpTez39My0p-1" value="Lambda&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" vertex="1" parent="I80Ibu-65VpTez39My0p-22">
+          <mxGeometry x="80.99999999999999" y="89" width="78" height="78" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
