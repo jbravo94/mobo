@@ -258,6 +258,7 @@ footer div {
 @media (max-width: 720px) {
   section.intro > video {
     width: 100vw;
+    height: auto;
   }
 
   header nav:last-of-type {
