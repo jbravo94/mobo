@@ -134,12 +134,22 @@ section.intro {
 }
 
 section.intro > video {
-  height: 100%;
+  height: 100vh;
+  max-width: 100vw;
+  object-fit: cover;
 }
 
+.bottom-space {
+  padding-bottom: 2rem;
+}
+
+section.skins {
+  text-align: center;
+}
 
 section.hero,
-section.savvy {
+section.savvy,
+section.skins {
   margin: 1rem;
   padding: 2rem;
 
@@ -238,9 +248,16 @@ footer div {
   justify-content: center;
 }
 
+.donation {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 720px) {
   section.intro > video {
-    width: 100%;
+    width: 100vw;
   }
 
   header nav:last-of-type {
@@ -271,7 +288,8 @@ footer div {
 
   section.hero,
   section.intro,
-  section.savvy {
+  section.savvy,
+  section.skins {
     margin: 1rem;
     padding: 1rem;
 
