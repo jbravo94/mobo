@@ -36,20 +36,20 @@ int loop_delay_counter = 0;
 
 // Wifi & HTTPS Client
 
-char* server = ""; //"ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws";
+char* server = "ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws";
 
 String method = "POST";
 String service = "lambda";
-String region = ""; //"eu-central-1";
+String region = "eu-central-1";
 String content_type = "application/json";
 String canonical_uri = "/";
 String canonical_querystring = "";
 
-String access_key = ""; //"AKIAVLKHVHWXVFBHYJSU";
-String secret_key = ""; //"****************************************";
+String access_key = "AKIAVLKHVHWXVFBHYJSU";
+String secret_key = "****************************************";
 
 // NTP server to request epoch time
-char* ntpServer = ""; //"at.pool.ntp.org";
+char* ntpServer = "at.pool.ntp.org";
 
 // Variable to save current epoch time
 unsigned long epochTime;
@@ -189,14 +189,14 @@ void setup_httpclient() {
   client.setCACert(test_root_ca);
   //client.setCertificate(test_client_cert); // for client verification
   //client.setPrivateKey(test_client_key);	// for client verification
-  String server_ = preferences.getString("aws-lambda-dn", "ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws"); //"ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws";
+  /*String server_ = preferences.getString("aws-lambda-dn", "ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws"); //"ozi5ej3rgtoyuqqrlndad7ucju0rvjxf.lambda-url.eu-central-1.on.aws";
   LOGLN(server_);
   server = (char*) server_.c_str(); 
   
   region = preferences.getString("aws-region", "eu-central-1"); //"eu-central-1";
 
   access_key = preferences.getString("aws-access-key", "AKIAVLKHVHWXVFBHYJSU"); //"AKIAVLKHVHWXVFBHYJSU";
-  secret_key = preferences.getString("aws-secret-key", "****************************************"); //"****************************************";
+  secret_key = preferences.getString("aws-secret-key", "****************************************"); //"****************************************";*/
 }
 
 
@@ -305,7 +305,7 @@ void loop_httpclient() {
 
     String date_stamp = String(date_stamp_array);
 
-    String canonical_headers = "content-type:" + content_type + "\n" + "host:" + String(server) + "\n" + "x-amz-date:" + amz_date + "\n";
+    String canonical_headers = "content-type:" + content_type + "\n" + "host:" + server + "\n" + "x-amz-date:" + amz_date + "\n";
     String signed_headers = "content-type;host;x-amz-date";
 
     String payload = "{\"requestType\": \"getRecentBackupStatus\"}";
@@ -326,9 +326,12 @@ void loop_httpclient() {
     String authorization_header = algorithm + " " + "Credential=" + access_key + "/" + credential_scope + ", " + "SignedHeaders=" + signed_headers + ", " + "Signature=" + get_byte_array_as_hex_string(signature, 32);
 
     // Make a HTTP request:
-    client.println("POST " + String(server) + "/ HTTP/1.0");
+    client.print("POST https://");
+    client.print(server);
+    client.println("/ HTTP/1.0");
     client.println("Content-Type: " + content_type);
-    client.println("Host: " + String(server));
+    client.print("Host: ");
+    client.println(server);
     client.println("X-Amz-Date: " + String(amz_date));
     client.println("Authorization: " + authorization_header);
     client.print("Content-Length: ");
@@ -354,6 +357,12 @@ void loop_httpclient() {
     if (error) {
       LOG(F("deserializeJson() failed: "));
       LOGLN(error.f_str());
+
+      while (client.available()) {
+        char c = client.read();
+        USBSerial.write(c);
+      }
+
       client.stop();
       return;
     }
@@ -373,17 +382,12 @@ void loop_httpclient() {
       LOGLN(resultMessage);
     }
 
-    /*while (client.available()) {
-      char c = client.read();
-      USBSerial.write(c);
-    }*/
-
     client.stop();
   }
 }
 
 void setup_time() {
-  ntpServer = (char*) preferences.getString("ntp-server-dn", "at.pool.ntp.org").c_str(); //"at.pool.ntp.org";
+  //ntpServer = (char*) preferences.getString("ntp-server-dn", "at.pool.ntp.org").c_str(); //"at.pool.ntp.org";
 
   configTime(0, 0, (const char*) ntpServer);
 }
@@ -537,7 +541,7 @@ void loop_serial() {
 
 
         preferences.getBytes(key.c_str(), &buffer, valueLen);
-        LOGLN(&buffer);
+        LOGLN(buffer);
 
         receivedMessage = "";
       }

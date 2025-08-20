@@ -84,7 +84,7 @@ header {
   font-size: max(16px, 0.75rem);
 
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
 
   background-color: var(--primary-color);
   color: var(--secondary-color);
@@ -99,7 +99,7 @@ header h1 {
   grid-area: logo;
   text-align: center;
 
-  font-size: 0;
+  font-size: 3;
 }
 
 header h1 img {
@@ -210,6 +210,32 @@ footer {
 footer img {
   width: 100%;
   vertical-align: bottom;
+}
+
+details {
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaaaaa;
+  margin-bottom: 0.5em;
+}
+
+footer div {
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 720px) {
