@@ -219,6 +219,10 @@ section.vid div.story div {
   text-align: center;
 }
 
+.inline-disclaimer {
+  font-size: small;
+}
+
 footer {
   padding: 2rem;
 
