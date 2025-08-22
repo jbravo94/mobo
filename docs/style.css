@@ -143,6 +143,14 @@ section.intro > video {
   padding-bottom: 2rem;
 }
 
+.survey-monkey {
+  background-color: rgb(0, 191, 111);
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+} 
+
 section.skins {
   text-align: center;
 }
