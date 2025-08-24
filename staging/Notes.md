@@ -2,5 +2,8 @@ https://codepen.io/junerockwell/pen/xZyrKy
 https://www.waveshare.com/product/arduino/boards-kits/esp32-s3/esp32-s3-touch-amoled-1.75.htm
 https://stackoverflow.com/questions/19262141/resize-image-with-javascript-canvas-smoothly
 https://pixabay.com/vectors/thumbs-up-emoji-smiley-icon-7648171/
-
+https://stackoverflow.com/questions/72626924/can-you-copy-only-a-specific-area-from-one-canvas-to-another
+https://stackoverflow.com/questions/11112321/how-to-save-canvas-as-png-image
+https://stackoverflow.com/questions/2368784/draw-on-html5-canvas-using-a-mouse
+https://shaneosullivan.wordpress.com/2023/05/23/instant-colour-fill-with-html-canvas/
 466×466
