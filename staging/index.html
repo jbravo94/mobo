@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <script>
+
+            var canvas, context;
+            var star_img = new Image();
+            var overlay_img = new Image();
+            var isDraggable = false;
+
+            var currentX = 0;
+            var currentY = 0;
+            var currentWidth = 0;
+            var currentHeight = 0;
+            var frozen = false;
+
+            window.onload = function() {
+            canvas = document.getElementById("canvas");
+            canvas2 = document.getElementById("canvas2");
+
+            context = canvas.getContext("2d");
+            context2 = canvas2.getContext("2d");
+
+            currentX = canvas.width/2;
+            currentY = canvas.height/2;
+
+            star_img.onload = function() {
+                _Go();
+            };
+            star_img.src="thumbs-up.png";
+
+            currentWidth = star_img.width;
+            currentHeight = star_img.height;
+
+            overlay_img.src="frame.png";
+            };
+
+            function _Go() {
+            _MouseEvents();
+
+            setInterval(function() {
+                _ResetCanvas();
+                _DrawImage();
+            }, 1000/30);
+            }
+            function _ResetCanvas() {
+            context.fillStyle = '#fff';
+            context.fillRect(0,0, canvas.width, canvas.height);
+            }
+            function _MouseEvents() {
+            canvas.onmousedown = function(e) {
+
+                if (!frozen) {
+
+                    var mouseX = e.pageX - this.offsetLeft;
+                    var mouseY = e.pageY - this.offsetTop;
+
+
+                    if (mouseX >= (currentX - currentWidth/2) &&
+                        mouseX <= (currentX + currentWidth/2) &&
+                        mouseY >= (currentY - currentHeight/2) &&
+                        mouseY <= (currentY + currentHeight/2)) {
+                        isDraggable = true;
+                        //currentX = mouseX;
+                        //currentY = mouseY;
+                    }
+                }
+            };
+            canvas.onmousemove = function(e) {
+
+                if (!frozen) {
+                    if (isDraggable) {
+                        currentX = e.pageX - this.offsetLeft;
+                        currentY = e.pageY - this.offsetTop;
+                    }
+                }
+                
+            };
+            canvas.onmouseup = function(e) {
+                if (!frozen) {
+                    isDraggable = false;
+                }
+            };
+            canvas.onmouseout = function(e) {
+                if (!frozen) {
+                    isDraggable = false;
+                }
+            };
+
+            canvas.onwheel = function(e) {
+
+                if (!frozen) {
+                    var ratio = currentWidth / currentHeight;
+
+                    if (e.deltaY > 0) {
+                        currentWidth += 20;
+                        currentHeight += 20 / ratio;
+                    
+                    } else {
+                        currentWidth -= 20;
+                        currentHeight -= 20 / ratio;
+                        
+                    }
+                }
+            };
+            }
+
+            function _DrawImage() {
+                context.drawImage(star_img, currentX-(currentWidth/2), currentY-(currentHeight/2), currentWidth, currentHeight);
+            
+                context2.drawImage(canvas, 200, 160, 466, 466, 0, 0, 466, 466);
+            
+                context.drawImage(overlay_img, 0, 0);
+                context.strokeStyle = "yellow";
+                context.strokeRect(200, 160, 466, 466); 
+
+            }
+
+            function downloadCanvas() {
+                let downloadLink = document.getElementById('downloadLink');
+                downloadLink.setAttribute('download', 'CanvasAsImage.png');
+                let canvas = document.getElementById('canvas2');
+                let dataURL = canvas.toDataURL('image/png');
+                let base64Image = document.getElementById('base64Image');
+                base64Image.innerText = dataURL.replace(/^data:image\/png;base64,/,'');
+                let url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
+                downloadLink.setAttribute('href', url);
+                downloadLink.innerText = "Download";
+            }
+
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="871" height="1002" style="border: 1px solid black"></canvas>
+        <canvas id="canvas2" width="466" height="466" style="border: 1px solid black"></canvas>
+        <br>
+        <br>
+        <textarea id="base64Image"></textarea>
+        <br>
+        <a id="downloadLink"></a>
+        <br>
+        <br>
+        <button id="freeze">Freeze</button>
+        <button id="download">Create Download</button>
+        
+    </body>
+    <script>
+        document.getElementById("freeze").addEventListener("click", () => {
+
+            if(frozen) {
+                document.getElementById("freeze").innerText = "Freeze";
+                frozen = false;
+            } else {
+                document.getElementById("freeze").innerText = "Un-Freeze";
+                frozen = true;
+            }
+
+        });
+        document.getElementById("download").addEventListener("click", () => downloadCanvas());
+        
+    </script>
+</html>
