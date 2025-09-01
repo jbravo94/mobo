@@ -1,0 +1,50 @@
+# DynamoDB Setup
+DynamoDB Name: backup_buddy_db
+Partition key: id (String)
+Sort key: timestamp (Number)
+
+Enter an entry with id `configuration`, timestamp `0` and a comma separated list of your application_name identifiers like `jira,confluence`
+
+# Lambda API Function Setup
+
+Lambda Execution Role permission statements:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:eu-central-1:367906864559:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:eu-central-1:367906864559:log-group:/aws/lambda/backup_buddy_api:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:DescribeTable",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchGet*",
+                "dynamodb:Get*",
+                "dynamodb:PutItem"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:eu-central-1:367906864559:table/backup_buddy_db"
+            ]
+        }
+    ]
+}
+```
+
+# API Credentials Setup
+API User minimum policies: AWSLambda_FullAccess
