@@ -4,4 +4,5 @@
 #define WRITE(text) {}
 
 void setup_serial();
+void loop_serial();
 bool isDebugEnabled();
