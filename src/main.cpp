@@ -1,11 +1,10 @@
 #include <Arduino.h>
-
 #include <WiFi.h>
-
 #include "display.h"
 #include "aws_client.h"
 #include "serial.h"
 #include "storage.h"
+#include "web_server.h"
 
 int http_delay = 5000;
 int loop_delay = 100;
@@ -44,6 +43,7 @@ void setup_wifi() {
 
   LOGLN("\nConnected to the WiFi network.");
   LOG("Local IP: ");
+  llogln(WiFi.localIP().toString());
   LOGLN(WiFi.localIP());
 }
 
@@ -63,6 +63,8 @@ void setup(void) {
   setup_httpclient();
 
   setup_littlefs();
+
+  setup_web_server();
 
   delay(2000);
 }
@@ -87,6 +89,8 @@ void handle_http_response() {
 
 void loop() {
 
+  loop_web_server();
+
   if (http_delay <= (loop_delay_counter * loop_delay)) {
     loop_httpclient();
     handle_http_response();
@@ -94,7 +98,7 @@ void loop() {
   }
 
   refresh_ui();
-  //loop_serial();
+  loop_serial();
 
   loop_delay_counter += 1;
   delay(100);

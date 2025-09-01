@@ -27,6 +27,10 @@ int logoutTimeout = 30;
 
 String adminPassword = "BackupBuddyAdmin";
 
+void llogln(String text) {
+  USBSerial.println(text);
+}
+
 bool isDebugEnabled() {
     return debug;
 }

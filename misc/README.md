@@ -1,4 +1,7 @@
 .platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls
+https://www.dfrobot.com/blog-1002.html?srsltid=AfmBOoo9yfb0pATHEsznLH8eqpXSlerIZYjiWOLEdurw44ccIMT20jO8
+https://randomnerdtutorials.com/esp32-websocket-server-sensor/
+https://randomnerdtutorials.com/esp32-vs-code-platformio-littlefs/
 
 #include <ESP_IOExpander_Library.h>
 

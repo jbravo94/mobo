@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #define LOG(text) {}
 #define LOGLN(text) {}
 #define LOGF(text, ...) {}
@@ -6,3 +8,4 @@
 void setup_serial();
 void loop_serial();
 bool isDebugEnabled();
+void llogln(String text);
