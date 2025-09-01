@@ -5,7 +5,7 @@
 #include <WiFiClientSecure.h>
 #include <ArduinoJson.h>
 #include <Preferences.h>
-//#include "mbedtls/md.h"
+#include "mbedtls/md.h"
 #include "time.h"
 
 #include "LittleFS.h"

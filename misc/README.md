@@ -1,0 +1,1 @@
+.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls
