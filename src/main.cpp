@@ -5,11 +5,42 @@
 #include "serial.h"
 #include "storage.h"
 #include "web_server.h"
+#include "pin_config.h"
 
 int http_delay = 5000;
 int loop_delay = 100;
 
 int loop_delay_counter = 0;
+
+#include <ESP_IOExpander_Library.h>
+#define _EXAMPLE_CHIP_CLASS(name, ...) ESP_IOExpander_##name(__VA_ARGS__)
+#define EXAMPLE_CHIP_CLASS(name, ...) _EXAMPLE_CHIP_CLASS(name, ##__VA_ARGS__)
+
+ESP_IOExpander *expander = NULL;
+
+
+void setup_button() {
+  
+  expander = new EXAMPLE_CHIP_CLASS(TCA95xx_8bit,
+                                    (i2c_port_t)0, ESP_IO_EXPANDER_I2C_TCA9554_ADDRESS_000,
+                                    IIC_SCL, IIC_SDA);
+
+  expander->init();
+  expander->begin();
+  expander->pinMode(5, INPUT);
+  expander->pinMode(4, INPUT);
+}
+
+void loop_button() {
+  int backlight_ctrl = expander->digitalRead(4);
+
+  if (backlight_ctrl == HIGH) {
+    while (expander->digitalRead(4) == HIGH) {
+      delay(50);
+    }
+    toggle_backlight();
+  }
+}
 
 
 void setup_wifi() {
@@ -66,6 +97,8 @@ void setup(void) {
 
   setup_web_server();
 
+  setup_button();
+
   delay(2000);
 }
 
@@ -99,6 +132,8 @@ void loop() {
 
   refresh_ui();
   loop_serial();
+
+  loop_button();
 
   loop_delay_counter += 1;
   delay(100);
