@@ -7,6 +7,15 @@
             var overlay_img = new Image();
             var isDraggable = false;
 
+            var virtualCanvas = document.createElement('canvas');
+            virtualCanvas.width = 466;
+            virtualCanvas.height = 466;
+
+
+
+            // Get the drawing context
+            var virtualContext = virtualCanvas.getContext('2d');
+
             var currentX = 0;
             var currentY = 0;
             var currentWidth = 0;
@@ -14,26 +23,200 @@
             var frozen = false;
 
             window.onload = function() {
-            canvas = document.getElementById("canvas");
-            canvas2 = document.getElementById("canvas2");
+                canvas = document.getElementById("canvas");
+                canvas2 = document.getElementById("canvas2");
 
-            context = canvas.getContext("2d");
-            context2 = canvas2.getContext("2d");
+                context = canvas.getContext("2d");
+                context2 = canvas2.getContext("2d");
 
-            currentX = canvas.width/2;
-            currentY = canvas.height/2;
+                currentX = canvas.width/2;
+                currentY = canvas.height/2;
 
-            star_img.onload = function() {
-                _Go();
+                star_img.onload = function() {
+                    //_Go();
+                };
+                star_img.src="thumbs-up.png";
+
+                currentWidth = star_img.width;
+                currentHeight = star_img.height;
+
+                overlay_img.src="frame.png";
+                startup();
             };
-            star_img.src="thumbs-up.png";
 
-            currentWidth = star_img.width;
-            currentHeight = star_img.height;
 
-            overlay_img.src="frame.png";
-            };
+            let isDrawing = false;
+            let x = 0;
+            let y = 0;
+            var offsetX;
+            var offsetY;
 
+            function startup() {
+                canvas.addEventListener('touchstart', handleStart);
+                canvas.addEventListener('touchend', handleEnd);
+                canvas.addEventListener('touchcancel', handleCancel);
+                canvas.addEventListener('touchmove', handleMove);
+                canvas.addEventListener('mousedown', (e) => {
+                    x = e.offsetX;
+                    y = e.offsetY;
+                    isDrawing = true;
+                });
+
+                canvas.addEventListener('mousemove', (e) => {
+                    if (isDrawing) {
+                    drawLine(context, x, y, e.offsetX, e.offsetY);
+                    x = e.offsetX;
+                    y = e.offsetY;
+                    }
+                });
+
+                canvas.addEventListener('mouseup', (e) => {
+                    if (isDrawing) {
+                    drawLine(context, x, y, e.offsetX, e.offsetY);
+                    x = 0;
+                    y = 0;
+                    isDrawing = false;
+                    }
+                });
+            }
+
+            //document.addEventListener("DOMContentLoaded", startup);
+
+            const ongoingTouches = [];
+
+            function handleStart(evt) {
+                evt.preventDefault();
+                const touches = evt.changedTouches;
+                offsetX = canvas.getBoundingClientRect().left;
+                offsetY = canvas.getBoundingClientRect().top;
+                for (let i = 0; i < touches.length; i++) {
+                    ongoingTouches.push(copyTouch(touches[i]));
+                }
+            }
+
+            function handleMove(evt) {
+                evt.preventDefault();
+                const touches = evt.changedTouches;
+                for (let i = 0; i < touches.length; i++) {
+                    const color = document.getElementById('selColor').value;
+                    const idx = ongoingTouchIndexById(touches[i].identifier);
+                    if (idx >= 0) {
+                    context.beginPath();
+                    context.moveTo(ongoingTouches[idx].clientX - offsetX, ongoingTouches[idx].clientY - offsetY);
+                    context.lineTo(touches[i].clientX - offsetX, touches[i].clientY - offsetY);
+                    context.lineWidth = document.getElementById('selWidth').value;
+                    context.strokeStyle = color;
+                    context.lineJoin = "round";
+                    context.closePath();
+                    context.stroke();
+                    ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
+                    }
+                }
+            }
+
+            function handleEnd(evt) {
+                evt.preventDefault();
+                const touches = evt.changedTouches;
+                for (let i = 0; i < touches.length; i++) {
+                    const color = document.getElementById('selColor').value;
+                    let idx = ongoingTouchIndexById(touches[i].identifier);
+                    if (idx >= 0) {
+                    context.lineWidth = document.getElementById('selWidth').value;
+                    context.fillStyle = color;
+                    ongoingTouches.splice(idx, 1);  // remove it; we're done
+                    }
+                }
+            }
+
+            function handleCancel(evt) {
+                evt.preventDefault();
+                const touches = evt.changedTouches;
+                for (let i = 0; i < touches.length; i++) {
+                    let idx = ongoingTouchIndexById(touches[i].identifier);
+                    ongoingTouches.splice(idx, 1);  // remove it; we're done
+                }
+            }
+
+            function copyTouch({ identifier, clientX, clientY }) {
+                return { identifier, clientX, clientY };
+            }
+
+            function ongoingTouchIndexById(idToFind) {
+                for (let i = 0; i < ongoingTouches.length; i++) {
+                    const id = ongoingTouches[i].identifier;
+                    if (id === idToFind) {
+                    return i;
+                    }
+                }
+                return -1;    // not found
+            }
+
+            function drawLine(context, x1, y1, x2, y2) {
+                var xNormalize = 200+1;
+                var yNormalize = 160+1;
+                
+                virtualContext.clearRect(0, 0, 466, 466);
+                virtualContext.beginPath();
+                virtualContext.strokeStyle = "blue"; //document.getElementById('selColor').value;
+                virtualContext.lineWidth = 10; //document.getElementById('selWidth').value;
+                virtualContext.lineJoin = "round";
+                virtualContext.moveTo(x1-xNormalize, y1-yNormalize);
+                virtualContext.lineTo(x2-xNormalize, y2-yNormalize);
+                virtualContext.closePath();
+                virtualContext.stroke();
+
+                context.drawImage(virtualCanvas, 200, 160);
+
+                var arr = virtualContext.getImageData(0, 0, 466, 466).data;
+                
+                var start = 0;
+
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] !== 0) {
+                        break;
+                    }
+                    if (i % 466 === 0) {
+                        start++;
+                    }
+                }
+                var end = 0;
+
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    if (arr[i] !== 0) {
+                        break;
+                    }
+                    if (i % 466 === 0) {
+                        end++;
+                    }
+                }
+                console.log(start);
+                console.log(end);
+
+                var arr2 = Array(arr.length - end * 466 - start * 466);
+
+                for (var i = start * 466; i < arr.length - end * 466; i++) {
+                    arr2.push(arr[i]);
+                }
+
+                console.log(arr2);
+            
+
+                context2.drawImage(canvas, 200, 160, 466, 466, 0, 0, 466, 466);
+
+                context.drawImage(overlay_img, 0, 0);
+            
+            
+                context.strokeStyle = "yellow";
+                context.strokeRect(200, 160, 466, 466); 
+            }
+
+            function clearArea() {
+                context.setTransform(1, 0, 0, 1, 0, 0);
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            }
+
+
+            /*
             function _Go() {
             _MouseEvents();
 
@@ -125,7 +308,7 @@
                 let url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
                 downloadLink.setAttribute('href', url);
                 downloadLink.innerText = "Download";
-            }
+            }*/
 
         </script>
     </head>
